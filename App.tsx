@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -38,6 +38,7 @@ const App: React.FC = () => {
         <WhyUs />
         <Process />
         
+        {/* Placeholder for missing sections to ensure links work */}
         <div id="testimonials" className="scroll-mt-32"></div>
         <div id="faqs" className="scroll-mt-32"></div>
         

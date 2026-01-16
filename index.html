@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRED MEDIA | Crafting Content That Grows Your Brand</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Manrope', 'sans-serif'],
+            },
+            colors: {
+              brand: {
+                dark: '#05010D',
+                accent: '#F48D2E',
+                pink: '#F2A9EB',
+                blue: '#4964EE',
+                gold: '#FFD700',
+              }
+            },
+            animation: {
+              'border-beam': 'border-beam 4s infinite linear',
+              'float': 'float 6s ease-in-out infinite',
+              'pulse-glow': 'pulse-glow 3s infinite ease-in-out',
+            },
+            keyframes: {
+              'border-beam': {
+                '100%': { 'offset-distance': '100%' },
+              },
+              'float': {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-20px)' },
+              },
+              'pulse-glow': {
+                '0%, 100%': { opacity: 0.3, transform: 'scale(1)', filter: 'blur(40px)' },
+                '50%': { opacity: 0.7, transform: 'scale(1.1)', filter: 'blur(60px)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #05010D;
+        color: white;
+        -webkit-font-smoothing: antialiased;
+      }
+      .text-gradient {
+        background: linear-gradient(90deg, #F48D2E 0%, #F2A9EB 50%, #4964EE 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .bg-glass {
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .card-hover {
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+      .card-hover:hover {
+        transform: translateY(-10px);
+        border-color: rgba(242, 169, 235, 0.4);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      }
+      .glow-on-hover:hover {
+        box-shadow: 0 0 20px rgba(242, 169, 235, 0.6);
+      }
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.36.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>

@@ -15,8 +15,10 @@ const GetStarted: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log({ ...formData });
-    alert("Message sent! Our team will reach out shortly.");
+    // Free method to receive inquiries without a backend or API
+    const subject = encodeURIComponent(`Free Edit Request from ${formData.name}`);
+    const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage: ${formData.message}`);
+    window.location.href = `mailto:noah@credstuz.com?subject=${subject}&body=${body}`;
   };
 
   return (
@@ -24,16 +26,21 @@ const GetStarted: React.FC = () => {
       <div className="max-w-4xl mx-auto">
         <div className="flex flex-col lg:flex-row gap-8 items-start">
           
-          {/* Left Column: Contact Details (Scaled Down) */}
           <div className="flex-1 space-y-6">
             <div className="space-y-3">
               <h2 className="text-3xl font-black tracking-tighter leading-none text-white">
-                Let’s Create <br />
-                <span className="text-brand-pink text-4xl">Amazing</span>
+                Claim Your <br />
+                <span className="text-brand-gold text-4xl">Free Edit</span>
               </h2>
               <p className="text-white/50 text-sm font-medium max-w-[240px]">
-                Ready to bring your vision to life? Get in touch today.
+                Zero cost. Zero risk. See our quality before you spend a dime.
               </p>
+              
+              <div className="pt-4">
+                <div className="inline-block px-4 py-2 bg-brand-gold/10 border border-brand-gold/20 rounded-lg">
+                  <span className="text-brand-gold font-black text-[10px] uppercase tracking-widest">Available Slots: 3/5 Left Today</span>
+                </div>
+              </div>
             </div>
 
             <div className="space-y-4">
@@ -48,9 +55,12 @@ const GetStarted: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Column: Interactive Form (Reduced size by ~50%) */}
-          <div className="flex-1 w-full bg-white/[0.02] border border-white/5 rounded-[1.5rem] p-6 md:p-8 shadow-xl">
-            <form onSubmit={handleSubmit} className="space-y-4">
+          <div className="flex-1 w-full bg-white/[0.02] border border-white/5 rounded-[1.5rem] p-6 md:p-8 shadow-xl relative overflow-hidden">
+            <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
+              <span className="text-8xl font-black text-white transform rotate-12 block">FREE</span>
+            </div>
+
+            <form onSubmit={handleSubmit} className="space-y-4 relative z-10">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-1">
                   <input 
@@ -60,7 +70,7 @@ const GetStarted: React.FC = () => {
                     placeholder="Your Name"
                     value={formData.name}
                     onChange={handleInputChange}
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white placeholder:text-white/20 focus:outline-none focus:border-brand-pink/50 transition-colors"
+                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white placeholder:text-white/20 focus:outline-none focus:border-brand-gold/50 transition-colors"
                   />
                 </div>
                 <div className="space-y-1">
@@ -71,7 +81,7 @@ const GetStarted: React.FC = () => {
                     placeholder="Your Email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white placeholder:text-white/20 focus:outline-none focus:border-brand-pink/50 transition-colors"
+                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white placeholder:text-white/20 focus:outline-none focus:border-brand-gold/50 transition-colors"
                   />
                 </div>
               </div>
@@ -80,21 +90,21 @@ const GetStarted: React.FC = () => {
                 <textarea 
                   name="message"
                   required
-                  placeholder="Your Message"
+                  placeholder="Tell us about your channel... (Get your first video free)"
                   rows={4}
                   value={formData.message}
                   onChange={handleInputChange}
                   maxLength={500}
-                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white placeholder:text-white/20 focus:outline-none focus:border-brand-pink/50 transition-colors resize-none"
+                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white placeholder:text-white/20 focus:outline-none focus:border-brand-gold/50 transition-colors resize-none"
                 ></textarea>
                 <div className="text-right text-[8px] font-black text-white/20 uppercase">{formData.message.length}/500</div>
               </div>
 
               <button 
                 type="submit"
-                className="w-full bg-gradient-to-r from-brand-accent via-brand-pink to-brand-blue py-3 rounded-xl font-black text-brand-dark text-sm hover:scale-[1.02] active:scale-95 transition-all shadow-lg"
+                className="w-full bg-gradient-to-r from-brand-gold via-brand-pink to-brand-accent py-3 rounded-xl font-black text-brand-dark text-sm hover:scale-[1.02] active:scale-95 transition-all shadow-lg"
               >
-                Send Message
+                REQUEST FREE EDIT
               </button>
             </form>
           </div>

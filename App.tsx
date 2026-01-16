@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -9,7 +9,6 @@ import Process from './components/Process';
 import GetStarted from './components/GetStarted';
 import Footer from './components/Footer';
 import FloatingCTA from './components/FloatingCTA';
-import ChatBot from './components/ChatBot';
 
 const App: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -39,7 +38,6 @@ const App: React.FC = () => {
         <WhyUs />
         <Process />
         
-        {/* Placeholder for missing sections to ensure links work */}
         <div id="testimonials" className="scroll-mt-32"></div>
         <div id="faqs" className="scroll-mt-32"></div>
         
@@ -48,7 +46,6 @@ const App: React.FC = () => {
 
       <Footer />
       <FloatingCTA />
-      <ChatBot />
     </div>
   );
 };

@@ -32,7 +32,7 @@ const Hero: React.FC = () => {
             </div>
           </a>
           <a 
-            href="https://discord.com" 
+            href="https://discord.com/users/1263203451605745850" 
             target="_blank" 
             rel="noopener noreferrer"
             className="w-full sm:w-auto px-10 py-5 rounded-2xl bg-white/5 border border-white/10 font-bold hover:bg-white/10 transition-all duration-300 text-center"

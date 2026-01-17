@@ -77,7 +77,7 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
         {/* Buttons Section */}
         <div className="flex items-center gap-5">
           <a 
-            href="https://discord.com" 
+            href="https://discord.com/users/1263203451605745850" 
             target="_blank" 
             rel="noopener noreferrer"
             className="hidden sm:block bg-white/5 border border-white/10 px-6 py-3.5 rounded-2xl text-[12px] font-black tracking-widest hover:bg-white/10 transition-all duration-300 transform hover:scale-105 active:scale-95"

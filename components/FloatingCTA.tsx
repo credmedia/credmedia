@@ -43,7 +43,7 @@ const FloatingCTA: React.FC = () => {
             BOOK A CALL
           </a>
           <a 
-            href="https://discord.com" 
+            href="https://discord.com/users/1263203451605745850" 
             target="_blank" 
             rel="noopener noreferrer"
             className="bg-brand-pink text-white px-6 py-3.5 rounded-[1.2rem] font-black text-xs md:text-sm hover:bg-white hover:text-brand-dark transition-all duration-300 shadow-[0_4px_15px_rgba(242,169,235,0.3)] whitespace-nowrap uppercase"

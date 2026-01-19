@@ -70,7 +70,7 @@ const Footer: React.FC = () => {
             <li><a href="#solution" onClick={(e) => scrollToSection(e, 'solution')} className="hover:text-brand-pink transition-colors cursor-pointer">Solutions</a></li>
             <li><a href="#portfolio" onClick={(e) => scrollToSection(e, 'portfolio')} className="hover:text-brand-pink transition-colors cursor-pointer">Portfolio</a></li>
             <li><a href="#process" onClick={(e) => scrollToSection(e, 'process')} className="hover:text-brand-pink transition-colors cursor-pointer">Our Process</a></li>
-            <li><a href="#get-started" onClick={(e) => scrollToSection(e, 'get-started')} className="hover:text-brand-pink transition-colors cursor-pointer">Pricing & Booking</a></li>
+            <li><a href="#testimonials" onClick={(e) => scrollToSection(e, 'testimonials')} className="hover:text-brand-pink transition-colors cursor-pointer">Testimonials</a></li>
           </ul>
         </div>
 

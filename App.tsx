@@ -6,6 +6,8 @@ import About from './components/About';
 import Portfolio from './components/Portfolio';
 import WhyUs from './components/WhyUs';
 import Process from './components/Process';
+import Testimonials from './components/Testimonials';
+import FAQ from './components/FAQ';
 import GetStarted from './components/GetStarted';
 import Footer from './components/Footer';
 import FloatingCTA from './components/FloatingCTA';
@@ -38,11 +40,11 @@ const App: React.FC = () => {
         <WhyUs />
         <Process />
         
-        {/* Placeholder for missing sections to ensure links work */}
-        <div id="testimonials" className="scroll-mt-32"></div>
-        <div id="faqs" className="scroll-mt-32"></div>
-        
+        {/* GetStarted is now placed specifically above Testimonials */}
         <GetStarted />
+        
+        <Testimonials />
+        <FAQ />
       </main>
 
       <Footer />

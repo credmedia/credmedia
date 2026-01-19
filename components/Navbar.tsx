@@ -35,9 +35,9 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
         {/* Logo Section */}
         <div className="flex items-center gap-4 group cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
           <div className="relative w-12 h-12 flex items-center justify-center transition-transform duration-500 group-hover:rotate-[15deg]">
-            <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-[0_0_12px_rgba(242,169,235,0.5)]">
+            <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-[0_0_12px_rgba(244,141,46,0.5)]">
               <defs>
-                <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <linearGradient id="logo-grad-nav" x1="0%" y1="0%" x2="100%" y2="100%">
                   <stop offset="0%" stopColor="#F48D2E" />
                   <stop offset="50%" stopColor="#F2A9EB" />
                   <stop offset="100%" stopColor="#4964EE" />
@@ -46,7 +46,7 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
               <path 
                 d="M20,20 L50,80 L80,20 M50,45 L35,20 M50,45 L65,20" 
                 fill="none" 
-                stroke="url(#logo-grad)" 
+                stroke="url(#logo-grad-nav)" 
                 strokeWidth="12" 
                 strokeLinecap="round" 
                 strokeLinejoin="round"
@@ -54,8 +54,9 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
             </svg>
             <div className="absolute inset-0 bg-brand-pink/20 blur-2xl rounded-full scale-75 opacity-0 group-hover:opacity-100 transition-opacity"></div>
           </div>
-          <span className="font-black text-3xl tracking-tighter uppercase transition-colors duration-300 group-hover:text-white">
-            CRED<span className="text-brand-pink">MEDIA</span>
+          <span className="font-black text-3xl tracking-tighter uppercase transition-all duration-300">
+            <span className="bg-gradient-to-r from-[#F48D2E] via-[#F2A9EB] to-[#4964EE] bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(244,141,46,0.3)]">CRED</span>
+            <span className="text-white">MEDIA</span>
           </span>
         </div>
 
@@ -80,9 +81,12 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
             href="https://discord.com/users/1263203451605745850" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="hidden sm:block bg-white/5 border border-white/10 px-6 py-3.5 rounded-2xl text-[12px] font-black tracking-widest hover:bg-white/10 transition-all duration-300 transform hover:scale-105 active:scale-95"
+            className="hidden sm:block relative group/discordnav"
           >
-            MESSAGE ON DISCORD
+            <div className="absolute inset-0 bg-[#5865F2] rounded-2xl blur-xl opacity-0 group-hover/discordnav:opacity-30 transition-all duration-500"></div>
+            <div className="relative bg-white/5 border border-white/10 px-6 py-3.5 rounded-2xl text-[12px] font-black tracking-widest text-white hover:bg-[#5865F2] hover:border-[#5865F2] hover:shadow-[0_0_20px_rgba(88,101,242,0.5)] transition-all duration-300 transform hover:scale-105 active:scale-95">
+              MESSAGE ON DISCORD
+            </div>
           </a>
           <a 
             href="#get-started"

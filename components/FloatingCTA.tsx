@@ -24,11 +24,10 @@ const FloatingCTA: React.FC = () => {
              <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-[#F48D2E] to-[#F2A9EB] flex items-center justify-center font-black text-brand-dark shadow-[0_0_15px_rgba(244,141,46,0.3)]">
                 !
              </div>
-             {/* Red Notification Dot */}
-             <div className="absolute top-0 right-0 w-3.5 h-3.5 bg-[#8E2222] rounded-full border-2 border-brand-dark"></div>
+             <div className="absolute top-0 right-0 w-3.5 h-3.5 bg-emerald-500 rounded-full border-2 border-brand-dark"></div>
           </div>
           <p className="text-[13px] md:text-sm font-bold leading-tight text-white tracking-tight hidden xs:block">
-            Start educating and converting <br /><span className="text-white/60">more users today.</span>
+            Scale your brand <br /><span className="text-white/60">with elite video systems.</span>
           </p>
         </div>
         
@@ -46,9 +45,10 @@ const FloatingCTA: React.FC = () => {
             href="https://discord.com/users/1263203451605745850" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="bg-brand-pink text-white px-6 py-3.5 rounded-[1.2rem] font-black text-xs md:text-sm hover:bg-white hover:text-brand-dark transition-all duration-300 shadow-[0_4px_15px_rgba(242,169,235,0.3)] whitespace-nowrap uppercase"
+            className="relative group/discordc bg-[#5865F2] text-white px-6 py-3.5 rounded-[1.2rem] font-black text-xs md:text-sm transition-all duration-300 shadow-[0_0_20px_rgba(88,101,242,0.3)] hover:shadow-[0_0_40px_rgba(88,101,242,0.7)] hover:scale-105 active:scale-95 whitespace-nowrap uppercase flex items-center gap-2"
           >
-            MESSAGE ON DISCORD
+            <span>MESSAGE ON DISCORD</span>
+            <div className="absolute inset-0 rounded-[1.2rem] bg-white opacity-0 group-hover/discordc:opacity-10 transition-opacity"></div>
           </a>
         </div>
       </div>

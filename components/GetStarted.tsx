@@ -66,10 +66,11 @@ const GetStarted: React.FC = () => {
                   rel="noopener noreferrer"
                   className="inline-block relative group/btn"
                 >
-                  {/* Subtle Border Beam Animation Container */}
-                  <div className="absolute -inset-[2px] rounded-xl overflow-hidden pointer-events-none">
-                    <div className="absolute inset-0 bg-gradient-to-r from-brand-accent via-brand-pink to-brand-blue animate-[spin_4s_linear_infinite] opacity-40 group-hover/btn:opacity-100 transition-opacity"></div>
-                    <div className="absolute inset-[2px] bg-brand-dark rounded-xl"></div>
+                  {/* High-End Border Beam Animation Container */}
+                  <div className="absolute -inset-[2px] rounded-[14px] overflow-hidden pointer-events-none">
+                    <div className="absolute inset-[-1000%] bg-[conic-gradient(from_0deg,transparent_0deg,transparent_120deg,#F48D2E_180deg,#F2A9EB_240deg,#4964EE_300deg,transparent_360deg)] animate-[spin_3s_linear_infinite] opacity-60 group-hover/btn:opacity-100 transition-opacity"></div>
+                    {/* Inner mask to create the thin line effect */}
+                    <div className="absolute inset-[1.5px] bg-[#080808] rounded-[13px]"></div>
                   </div>
 
                   <div className="absolute inset-0 bg-gradient-to-r from-brand-accent via-brand-pink to-brand-blue rounded-xl blur-lg opacity-10 group-hover/btn:opacity-40 transition-all duration-500"></div>
@@ -126,6 +127,10 @@ const GetStarted: React.FC = () => {
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,900&display=swap');
         .font-serif {
           font-family: 'Playfair Display', serif;
+        }
+        @keyframes spin {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
         }
       `}</style>
     </section>

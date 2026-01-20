@@ -21,6 +21,10 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
     }
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <nav 
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 px-8 py-6 ${
@@ -32,8 +36,11 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
           scrolled ? 'bg-brand-dark/85 backdrop-blur-2xl border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)]' : 'bg-transparent'
         }`}
       >
-        {/* Logo Section */}
-        <div className="flex items-center gap-4 group cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+        {/* Logo Section - Clickable with Scroll to Top */}
+        <button 
+          onClick={scrollToTop}
+          className="flex items-center gap-4 group cursor-pointer border-none bg-transparent outline-none focus:outline-none"
+        >
           <div className="relative w-12 h-12 flex items-center justify-center transition-transform duration-500 group-hover:rotate-[15deg]">
             <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-[0_0_12px_rgba(244,141,46,0.5)]">
               <defs>
@@ -58,7 +65,7 @@ const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
             <span className="bg-gradient-to-r from-[#F48D2E] via-[#F2A9EB] to-[#4964EE] bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(244,141,46,0.3)]">CRED</span>
             <span className="text-white">MEDIA</span>
           </span>
-        </div>
+        </button>
 
         {/* Navigation Links */}
         <div className="hidden lg:flex items-center gap-10 text-lg font-bold text-white/70">

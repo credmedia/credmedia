@@ -56,39 +56,27 @@ const About: React.FC = () => {
                 </svg>
               </div>
 
-              {/* Central Floating Chat Box (The target of the arcing lines) */}
+              {/* Central Floating Chat Box */}
               <div className="relative z-20 w-24 h-24 bg-[#121212]/90 backdrop-blur-2xl border border-white/10 rounded-3xl flex items-center justify-center shadow-[0_0_60px_rgba(0,0,0,0.8),0_0_20px_rgba(242,169,235,0.2)] animate-float">
                 <svg className="w-12 h-12 text-brand-pink drop-shadow-[0_0_8px_rgba(242,169,235,0.8)]" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 2C6.477 2 2 6.477 2 12c0 1.691.419 3.285 1.157 4.685L2.05 21.114a.75.75 0 00.936.936l4.429-1.107A9.957 9.957 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18c-1.554 0-3.013-.434-4.263-1.187a.75.75 0 00-.638-.06l-3.02.755.755-3.02a.75.75 0 00-.06-.638A8.455 8.455 0 013.5 12c0-4.694 3.806-8.5 8.5-8.5s8.5 3.806 8.5 8.5-3.806 8.5-8.5 8.5z"/>
                 </svg>
               </div>
 
-              {/* Colorful Connection Points & Arcing Lines exactly as in reference */}
+              {/* Colorful Connection Points & Arcing Lines */}
               <div className="absolute inset-0 z-10">
                 <svg viewBox="0 0 500 500" className="w-full h-full overflow-visible">
-                  {/* Arcs with glow and dots at ends */}
                   <g className="opacity-80">
-                    {/* Orange Arc */}
                     <path d="M180,120 Q220,50 250,250" stroke="#F48D2E" strokeWidth="2" fill="none" strokeDasharray="200" strokeDashoffset="200" className="animate-[dash_3s_ease-in-out_infinite_alternate]" />
                     <circle cx="180" cy="120" r="4" fill="#F48D2E" className="animate-pulse" />
-                    
-                    {/* Pink Arc */}
                     <path d="M160,180 Q200,150 250,250" stroke="#F2A9EB" strokeWidth="2" fill="none" strokeDasharray="200" strokeDashoffset="200" className="animate-[dash_4s_ease-in-out_infinite_alternate_1s]" />
                     <circle cx="160" cy="180" r="4" fill="#F2A9EB" className="animate-pulse" />
-                    
-                    {/* Blue Arc */}
                     <path d="M100,250 Q180,260 250,250" stroke="#4964EE" strokeWidth="2" fill="none" strokeDasharray="200" strokeDashoffset="200" className="animate-[dash_5s_ease-in-out_infinite_alternate]" />
                     <circle cx="100" cy="250" r="4" fill="#4964EE" className="animate-pulse" />
-                    
-                    {/* Teal Arc */}
                     <path d="M330,130 Q300,180 250,250" stroke="#00FF85" strokeWidth="2" fill="none" strokeDasharray="200" strokeDashoffset="200" className="animate-[dash_3s_ease-in-out_infinite_alternate_0.5s]" />
                     <circle cx="330" cy="130" r="4" fill="#00FF85" className="animate-pulse" />
-                    
-                    {/* Purple Arc */}
                     <path d="M380,200 Q330,220 250,250" stroke="#8B5CF6" strokeWidth="2" fill="none" strokeDasharray="200" strokeDashoffset="200" className="animate-[dash_6s_ease-in-out_infinite_alternate]" />
                     <circle cx="380" cy="200" r="4" fill="#8B5CF6" className="animate-pulse" />
-                    
-                    {/* Yellow Arc */}
                     <path d="M400,350 Q350,320 250,250" stroke="#FFD700" strokeWidth="2" fill="none" strokeDasharray="200" strokeDashoffset="200" className="animate-[dash_4s_ease-in-out_infinite_alternate_2s]" />
                     <circle cx="400" cy="350" r="4" fill="#FFD700" className="animate-pulse" />
                   </g>
@@ -96,7 +84,6 @@ const About: React.FC = () => {
               </div>
             </div>
 
-            {/* Corner Decorative Brackets (as seen in image) */}
             <div className="absolute top-0 right-0 w-16 h-16 border-t border-r border-white/10 rounded-tr-[3rem]"></div>
             <div className="absolute bottom-0 left-0 w-24 h-24 border-b border-l border-brand-blue/20 rounded-bl-[3rem]"></div>
           </div>
@@ -105,14 +92,19 @@ const About: React.FC = () => {
         {/* Right Side: Content */}
         <div className="flex-1 space-y-8">
           <div className="space-y-6">
-            <div className="inline-block px-5 py-3 bg-white/5 border border-white/10 rounded-2xl overflow-hidden transition-all duration-300">
-              <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-brand-accent animate-pulse"></div>
-                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-brand-accent">Exclusive Offer</span>
+            {/* ENHANCED HIGHLIGHTED EXCLUSIVE OFFER BOX */}
+            <div className="relative group max-w-xl">
+              <div className="absolute -inset-[2px] bg-gradient-to-r from-brand-accent to-brand-pink rounded-[1.25rem] blur-[8px] opacity-40 group-hover:opacity-70 transition duration-500"></div>
+              <div className="relative flex items-center gap-4 bg-[#0A0A0A] border border-brand-accent/30 rounded-[1.25rem] p-5 shadow-2xl">
+                <div className="flex-shrink-0 flex flex-col items-center">
+                  <div className="w-2.5 h-6 bg-brand-accent rounded-full mb-2 animate-pulse"></div>
+                  <span className="text-[14px] font-black uppercase tracking-[0.15em] text-brand-accent whitespace-nowrap leading-none">
+                    EXCLUSIVE<br/>OFFER
+                  </span>
                 </div>
-                <p className="text-xs font-bold text-white/90 leading-tight">
-                  I will edit and manage your channel for free if revenue is over $500/month — <span className="text-brand-pink">STRESS FREE WORK</span>
+                <div className="w-[1px] h-12 bg-white/10 mx-2 hidden sm:block"></div>
+                <p className="text-sm md:text-base font-bold text-white/95 leading-tight tracking-tight">
+                  I will edit and manage your channel for free if revenue is over <span className="text-brand-accent">$500/month</span> — <span className="text-brand-pink underline decoration-2 underline-offset-4 font-black">STRESS FREE WORK</span>
                 </p>
               </div>
             </div>

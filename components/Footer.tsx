@@ -23,6 +23,49 @@ const Footer: React.FC = () => {
     document.body.style.overflow = 'auto';
   };
 
+  const renderLegalContent = () => {
+    switch (activeLegal) {
+      case 'Refund Policy':
+        return (
+          <div className="space-y-6 text-white/60 font-medium leading-relaxed">
+            <p>Last updated: June 2024</p>
+            <p className="text-white font-bold text-xl">1. Eligibility for Refund</p>
+            <p>
+              Refund requests must be submitted within 14 days of project start and before final delivery.
+            </p>
+            <h3 className="text-white font-bold text-xl">2. Void Conditions</h3>
+            <p>
+              This guarantee becomes void if project scope is changed, feedback is delayed, or delivered files are published or used commercially.
+            </p>
+            <h3 className="text-white font-bold text-xl">3. Performance Disclaimer</h3>
+            <p>
+              As stated in our guarantee highlight, we guarantee editing quality and adherence to agreed deliverables. We do not guarantee views, engagement, revenue, or algorithm-based performance.
+            </p>
+          </div>
+        );
+      default:
+        return (
+          <div className="space-y-6 text-white/60 font-medium leading-relaxed">
+            <p>Last updated: June 2024</p>
+            <p>
+              Welcome to CRED MEDIA. By accessing our services, you agree to follow the standards of excellence we maintain for our clients and partners.
+            </p>
+            <h3 className="text-white font-bold text-xl">1. Our Commitment</h3>
+            <p>
+              At CRED MEDIA, we prioritize high-conversion storytelling and absolute brand integrity. All content produced is subject to our rigorous quality control processes.
+            </p>
+            <h3 className="text-white font-bold text-xl">2. Service Usage</h3>
+            <p>
+              Our "Stress-Free" partnership model is designed for established creators. Eligibility for revenue-based free management is determined upon initial audit.
+            </p>
+            <p>
+              This is a placeholder for the full {activeLegal?.toLowerCase()} documentation. For actual legal inquiries, please reach out to us via our primary contact channels.
+            </p>
+          </div>
+        );
+    }
+  };
+
   return (
     <footer className="py-20 px-6 border-t border-white/5 bg-brand-dark relative">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
@@ -79,6 +122,7 @@ const Footer: React.FC = () => {
           <ul className="space-y-4 font-bold text-white/60">
             <li><a href="#" onClick={(e) => openLegal(e, 'Terms of Service')} className="hover:text-brand-pink transition-colors cursor-pointer block">Terms of Service</a></li>
             <li><a href="#" onClick={(e) => openLegal(e, 'Privacy Policy')} className="hover:text-brand-pink transition-colors cursor-pointer block">Privacy Policy</a></li>
+            <li><a href="#" onClick={(e) => openLegal(e, 'Refund Policy')} className="hover:text-brand-pink transition-colors cursor-pointer block text-brand-accent">Refund Policy</a></li>
             <li><a href="#" onClick={(e) => openLegal(e, 'Cookies')} className="hover:text-brand-pink transition-colors cursor-pointer block">Cookies</a></li>
           </ul>
         </div>
@@ -106,23 +150,7 @@ const Footer: React.FC = () => {
             
             <h2 className="text-3xl font-black tracking-tighter mb-8 text-gradient">{activeLegal}</h2>
             
-            <div className="space-y-6 text-white/60 font-medium leading-relaxed">
-              <p>Last updated: June 2024</p>
-              <p>
-                Welcome to CRED MEDIA. By accessing our services, you agree to follow the standards of excellence we maintain for our clients and partners.
-              </p>
-              <h3 className="text-white font-bold text-xl">1. Our Commitment</h3>
-              <p>
-                At CRED MEDIA, we prioritize high-conversion storytelling and absolute brand integrity. All content produced is subject to our rigorous quality control processes.
-              </p>
-              <h3 className="text-white font-bold text-xl">2. Service Usage</h3>
-              <p>
-                Our "Stress-Free" partnership model is designed for established creators. Eligibility for revenue-based free management is determined upon initial audit.
-              </p>
-              <p>
-                This is a placeholder for the full {activeLegal.toLowerCase()} documentation. For actual legal inquiries, please reach out to us via our primary contact channels.
-              </p>
-            </div>
+            {renderLegalContent()}
 
             <div className="mt-12 pt-8 border-t border-white/5">
               <button 

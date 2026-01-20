@@ -50,7 +50,7 @@ const Hero: React.FC = () => {
         </div>
 
         {/* Free Edit Tagline Badge */}
-        <div className="flex justify-center mb-12 animate-in fade-in slide-in-from-bottom-5 duration-1000 delay-500">
+        <div className="flex justify-center mb-6 animate-in fade-in slide-in-from-bottom-5 duration-1000 delay-500">
           <div className="relative group cursor-default">
             <div className="absolute -inset-1 bg-gradient-to-r from-brand-accent via-brand-pink to-brand-blue rounded-full blur-[4px] opacity-30 group-hover:opacity-60 transition duration-500"></div>
             <div className="relative px-6 py-2.5 bg-brand-dark/80 backdrop-blur-xl border border-white/10 rounded-full flex items-center gap-3">
@@ -61,6 +61,19 @@ const Hero: React.FC = () => {
               <span className="text-sm font-black uppercase tracking-[0.15em] text-white/90">
                 We will edit your <span className="text-brand-accent">first video for free</span>
               </span>
+            </div>
+          </div>
+        </div>
+
+        {/* Guarantee Highlight - Short & Bold */}
+        <div className="flex justify-center mb-12 animate-in fade-in slide-in-from-bottom-5 duration-1000 delay-600">
+          <div className="relative group">
+            <div className="absolute -inset-[1px] bg-brand-accent rounded-full blur-[10px] opacity-40 group-hover:opacity-70 transition duration-500"></div>
+            <div className="relative flex items-center gap-2 bg-[#0A0A0A]/90 backdrop-blur-md border border-brand-accent/40 rounded-full py-2.5 px-6 shadow-2xl">
+              <span className="w-2 h-2 bg-brand-accent rounded-full animate-pulse"></span>
+              <p className="text-[12px] md:text-sm font-black text-white uppercase tracking-wider">
+                14-Day Quality Guarantee · <span className="text-brand-accent">Full Refund</span> if You’re Not Satisfied
+              </p>
             </div>
           </div>
         </div>

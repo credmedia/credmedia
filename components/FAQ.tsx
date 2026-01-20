@@ -3,6 +3,10 @@ import React, { useState } from 'react';
 
 const faqs = [
   {
+    question: "Do you offer a money-back guarantee?",
+    answer: "Yes. We offer a 14-Day Money-Back Guarantee. If you’re not satisfied with the editing quality or delivery within the first 14 days, you may request a full refund after providing reasonable feedback and allowing revisions. This guarantee applies only to editing quality and agreed deliverables and does not cover views, engagement, revenue, or algorithm-based performance."
+  },
+  {
     question: "How many revision option i will get for per video edit?",
     answer: "We offer unlimited revisions. Our goal is absolute perfection. We work on the video until it perfectly aligns with your vision and brand standards."
   },
@@ -58,7 +62,7 @@ const FAQItem = ({ faq, isOpen, onClick }: FAQItemProps) => {
       
       <div 
         className={`transition-all duration-500 ease-in-out px-8 overflow-hidden ${
-          isOpen ? 'max-h-40 pb-6 opacity-100' : 'max-h-0 opacity-0'
+          isOpen ? 'max-h-60 pb-6 opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
         <p className="text-white/50 text-base leading-relaxed font-medium">

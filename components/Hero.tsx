@@ -38,7 +38,6 @@ const Hero: React.FC = () => {
             rel="noopener noreferrer"
             className="w-full sm:w-auto relative group/discord"
           >
-            {/* Intensive Glow Layer */}
             <div className="absolute inset-0 bg-[#5865F2] rounded-2xl blur-2xl opacity-0 group-hover/discord:opacity-40 transition-all duration-500 scale-110"></div>
             <div className="relative w-full px-10 py-5 rounded-2xl bg-white/5 border border-white/10 font-bold text-white transition-all duration-300 text-center hover:bg-[#5865F2] hover:border-[#5865F2] hover:shadow-[0_0_40px_rgba(88,101,242,0.6)] hover:scale-105 active:scale-95 flex items-center justify-center gap-3">
               MESSAGE ON DISCORD
@@ -50,7 +49,7 @@ const Hero: React.FC = () => {
         </div>
 
         {/* Free Edit Tagline Badge */}
-        <div className="flex justify-center mb-6 animate-in fade-in slide-in-from-bottom-5 duration-1000 delay-500">
+        <div className="flex justify-center mb-10 animate-in fade-in slide-in-from-bottom-5 duration-1000 delay-500">
           <div className="relative group cursor-default">
             <div className="absolute -inset-1 bg-gradient-to-r from-brand-accent via-brand-pink to-brand-blue rounded-full blur-[4px] opacity-30 group-hover:opacity-60 transition duration-500"></div>
             <div className="relative px-6 py-2.5 bg-brand-dark/80 backdrop-blur-xl border border-white/10 rounded-full flex items-center gap-3">
@@ -65,20 +64,21 @@ const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* Guarantee Highlight - Short & Bold */}
-        <div className="flex justify-center mb-12 animate-in fade-in slide-in-from-bottom-5 duration-1000 delay-600">
+        {/* Guarantee Highlight - Positioned Above VSL */}
+        <div className="flex justify-center mb-6 animate-in fade-in slide-in-from-bottom-5 duration-1000 delay-600">
           <div className="relative group">
-            <div className="absolute -inset-[1px] bg-brand-accent rounded-full blur-[10px] opacity-40 group-hover:opacity-70 transition duration-500"></div>
-            <div className="relative flex items-center gap-2 bg-[#0A0A0A]/90 backdrop-blur-md border border-brand-accent/40 rounded-full py-2.5 px-6 shadow-2xl">
-              <span className="w-2 h-2 bg-brand-accent rounded-full animate-pulse"></span>
-              <p className="text-[12px] md:text-sm font-black text-white uppercase tracking-wider">
-                14-Day Quality Guarantee · <span className="text-brand-accent">Full Refund</span> if You’re Not Satisfied
+            {/* Outline Glow Inspired by image */}
+            <div className="absolute -inset-[1px] bg-brand-accent rounded-full blur-[8px] opacity-30 group-hover:opacity-60 transition duration-500"></div>
+            <div className="relative flex items-center gap-2.5 bg-[#0A0A0A] border border-brand-accent/30 rounded-full py-2 px-8 shadow-2xl">
+              <span className="w-2.5 h-2.5 bg-brand-accent rounded-full animate-pulse shadow-[0_0_10px_rgba(244,141,46,0.8)]"></span>
+              <p className="text-[12px] md:text-sm font-black text-white uppercase tracking-wider flex items-center gap-1.5">
+                14-DAY QUALITY GUARANTEE · <span className="text-brand-accent">FULL REFUND</span> IF YOU’RE NOT SATISFIED
               </p>
             </div>
           </div>
         </div>
 
-        {/* Video Showcase Frame */}
+        {/* Video Showcase Frame (VSL) */}
         <div className="relative group animate-in zoom-in-95 duration-1000 delay-700">
           <div className="absolute -inset-1 bg-gradient-to-r from-brand-blue via-brand-pink to-brand-accent rounded-3xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
           <div className="relative bg-brand-dark rounded-3xl overflow-hidden aspect-video border border-white/10 shadow-2xl">

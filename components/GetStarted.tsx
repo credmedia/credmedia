@@ -59,13 +59,19 @@ const GetStarted: React.FC = () => {
             {/* Action Buttons Group */}
             <div className="flex flex-col items-center gap-8 pt-4">
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                {/* Primary Call Action - Brand Gradient (Orange to Blue) */}
+                {/* Primary Call Action - Brand Gradient (Orange to Blue) with Animated Border */}
                 <a 
                   href="https://calendly.com/ayushvisions/30min" 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block relative group/btn"
                 >
+                  {/* Subtle Border Beam Animation Container */}
+                  <div className="absolute -inset-[2px] rounded-xl overflow-hidden pointer-events-none">
+                    <div className="absolute inset-0 bg-gradient-to-r from-brand-accent via-brand-pink to-brand-blue animate-[spin_4s_linear_infinite] opacity-40 group-hover/btn:opacity-100 transition-opacity"></div>
+                    <div className="absolute inset-[2px] bg-brand-dark rounded-xl"></div>
+                  </div>
+
                   <div className="absolute inset-0 bg-gradient-to-r from-brand-accent via-brand-pink to-brand-blue rounded-xl blur-lg opacity-10 group-hover/btn:opacity-40 transition-all duration-500"></div>
                   
                   <div className="relative bg-gradient-to-r from-brand-accent via-brand-pink to-brand-blue text-[#05010D] px-10 py-4 rounded-xl font-black text-base tracking-tight hover:scale-[1.03] active:scale-95 transition-all duration-300 shadow-[0_10px_30px_rgba(242,169,235,0.2)] flex items-center gap-3">

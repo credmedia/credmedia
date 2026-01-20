@@ -11,6 +11,7 @@ import FAQ from './components/FAQ';
 import GetStarted from './components/GetStarted';
 import Footer from './components/Footer';
 import FloatingCTA from './components/FloatingCTA';
+import SuccessEnd from './components/SuccessEnd';
 
 const App: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -40,11 +41,13 @@ const App: React.FC = () => {
         <WhyUs />
         <Process />
         
-        {/* GetStarted is now placed specifically above Testimonials */}
         <GetStarted />
         
         <Testimonials />
         <FAQ />
+        
+        {/* Subtle high-end animation at the very end of the content scroll */}
+        <SuccessEnd />
       </main>
 
       <Footer />

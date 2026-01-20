@@ -2,24 +2,29 @@
 import React from 'react';
 
 const verticalVideos = [
-  { id: '0CCwOuHeOQE', title: 'Viral Strategy' },
-  { id: 'biGJK6v9ew0', title: 'High-Conversion Edit' },
-  { id: 'WmBOh60CsPo', title: 'Brand Storytelling' },
-  { id: 'RmTEmdb18cI', title: 'Social Commerce' },
-  { id: '0LBDGwjUTaM', title: 'Elite Production' },
-  { id: 'UP7_Xdvlp1k', title: 'Dynamic Motion' }
+  { id: 'LwMn2XmdRbg', title: 'Viral Strategy' },
+  { id: '5niHPSTvSxY', title: 'High-Conversion Edit' },
+  { id: 'hprOw902GuM', title: 'Brand Storytelling' },
+  { id: '5niHPSTvSxY', title: 'Social Commerce' },
+  { id: 'ZogS2Xyin_8', title: 'Elite Production' },
+  { id: '4kHYSegwA78', title: 'Dynamic Motion' }
 ];
 
 const horizontalVideos = [
   { 
-    url: 'https://player.vimeo.com/video/1146026375?h=2866e1e07c', 
+    url: 'https://www.youtube.com/embed/8ahN_fRwKKw?enablejsapi=1&origin=' + window.location.origin, 
     title: 'Visual Storytelling',
-    type: 'vimeo'
+    type: 'youtube'
   },
   { 
-    url: 'https://player.vimeo.com/video/1104809218?h=b36739a0bd', 
+    url: 'https://www.youtube.com/embed/Scso9MHDpNk?enablejsapi=1&origin=' + window.location.origin, 
     title: 'Brand Showcase',
-    type: 'vimeo'
+    type: 'youtube'
+  },
+  { 
+    url: 'https://www.youtube.com/embed/XiKs4J2u5Ok?enablejsapi=1&origin=' + window.location.origin, 
+    title: 'KIM STARK',
+    type: 'youtube'
   },
   { 
     url: 'https://www.youtube.com/embed/WVGZJP_464w?enablejsapi=1&origin=' + window.location.origin, 
@@ -35,15 +40,10 @@ const horizontalVideos = [
     url: 'https://www.youtube.com/embed/5p3VFGnMClg?si=XvDiOc4fcy4mOp7l&enablejsapi=1&origin=' + window.location.origin, 
     title: 'Product Design Deep Dive',
     type: 'youtube'
-  },
-  { 
-    url: 'https://www.youtube.com/embed/J_FbYrc1iJ4?enablejsapi=1&origin=' + window.location.origin, 
-    title: 'Brand Identity Strategy',
-    type: 'youtube'
   }
 ];
 
-// Split the 6 horizontal videos into two rows of 3 for the two-line layout
+// Split the horizontal videos into two rows for the two-line marquee layout
 const row1Videos = horizontalVideos.slice(0, 3);
 const row2Videos = horizontalVideos.slice(3, 6);
 
@@ -114,17 +114,14 @@ const Portfolio: React.FC = () => {
                     src={video.url} 
                     title={video.title}
                     frameBorder="0"
-                    allow={video.type === 'vimeo' 
-                      ? "autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
-                      : "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    }
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerPolicy="strict-origin-when-cross-origin"
                     allowFullScreen
                   ></iframe>
                   
                   <div className="absolute bottom-6 right-6 pointer-events-none opacity-60 group-hover:opacity-100 transition-opacity">
                     <div className="flex items-center gap-2 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/10">
-                      <span className="text-[11px] font-black tracking-tighter text-white uppercase">{video.type} Premium</span>
+                      <span className="text-[11px] font-black tracking-tighter text-white uppercase">Premium Content</span>
                     </div>
                   </div>
 
@@ -149,17 +146,14 @@ const Portfolio: React.FC = () => {
                     src={video.url} 
                     title={video.title}
                     frameBorder="0"
-                    allow={video.type === 'vimeo' 
-                      ? "autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
-                      : "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    }
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerPolicy="strict-origin-when-cross-origin"
                     allowFullScreen
                   ></iframe>
                   
                   <div className="absolute bottom-6 right-6 pointer-events-none opacity-60 group-hover:opacity-100 transition-opacity">
                     <div className="flex items-center gap-2 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/10">
-                      <span className="text-[11px] font-black tracking-tighter text-white uppercase">{video.type} Premium</span>
+                      <span className="text-[11px] font-black tracking-tighter text-white uppercase">Expert Editing</span>
                     </div>
                   </div>
 

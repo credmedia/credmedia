@@ -117,10 +117,10 @@ const About: React.FC = () => {
           
           <div className="space-y-6 text-lg text-white/70 leading-relaxed font-medium">
             <p>
-              CRED MEDIA is a creative agency with a proud team of 25 specialists. Our aim is to help business owners and content creators build an online presence without any resistance, so they can focus on what they love.
+              CRED MEDIA is a creative agency with a proud team of 8 specialists. Our aim is to help business owners and content creators build an online presence without any resistance, so they can focus on what they love.
             </p>
             <p>
-              Our team of video editors, script writers, content experts will help you make your content standout from the market and help you build an irreplaceable brand.
+              Our team of video editors, script writers, content experts will help you make your content stand out from the market and help you build an irreplaceable brand.
             </p>
           </div>
 

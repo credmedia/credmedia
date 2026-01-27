@@ -48,7 +48,6 @@ const Hero: React.FC = () => {
           </a>
         </div>
 
-        {/* Free Edit Tagline Badge */}
         <div className="flex justify-center mb-10 animate-in fade-in slide-in-from-bottom-5 duration-1000 delay-500">
           <div className="relative group cursor-default">
             <div className="absolute -inset-1 bg-gradient-to-r from-brand-accent via-brand-pink to-brand-blue rounded-full blur-[4px] opacity-30 group-hover:opacity-60 transition duration-500"></div>
@@ -64,10 +63,8 @@ const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* Guarantee Highlight - Positioned Above VSL */}
         <div className="flex justify-center mb-6 animate-in fade-in slide-in-from-bottom-5 duration-1000 delay-600">
           <div className="relative group">
-            {/* Outline Glow Inspired by image */}
             <div className="absolute -inset-[1px] bg-brand-accent rounded-full blur-[8px] opacity-30 group-hover:opacity-60 transition duration-500"></div>
             <div className="relative flex items-center gap-2.5 bg-[#0A0A0A] border border-brand-accent/30 rounded-full py-2 px-8 shadow-2xl">
               <span className="w-2.5 h-2.5 bg-brand-accent rounded-full animate-pulse shadow-[0_0_10px_rgba(244,141,46,0.8)]"></span>
@@ -78,7 +75,6 @@ const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* Video Showcase Frame (VSL) */}
         <div className="relative group animate-in zoom-in-95 duration-1000 delay-700">
           <div className="absolute -inset-1 bg-gradient-to-r from-brand-blue via-brand-pink to-brand-accent rounded-3xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
           <div className="relative bg-brand-dark rounded-3xl overflow-hidden aspect-video border border-white/10 shadow-2xl">
@@ -93,9 +89,6 @@ const Hero: React.FC = () => {
           </div>
         </div>
       </div>
-
-      <div className="absolute top-1/4 left-0 w-64 h-64 bg-brand-accent opacity-10 blur-[100px] animate-pulse"></div>
-      <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-brand-blue opacity-10 blur-[120px] animate-pulse delay-700"></div>
     </section>
   );
 };

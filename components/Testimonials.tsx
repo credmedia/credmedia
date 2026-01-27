@@ -1,6 +1,23 @@
 
 import React from 'react';
 
+const featuredVideoTestimonials = [
+  {
+    id: '1Yq387aMaPnq8C0eFJbXBFGJDdFthfPrJ',
+    title: 'Content Scaling Strategy',
+    name: 'Strategic Partner',
+    result: '40% Conversion Lift',
+    color: 'brand-accent'
+  },
+  {
+    id: '1fQA03s9WxgX8QGm8pvjaNEdR8lUOC_-r',
+    title: 'Brand Growth Results',
+    name: 'Growth Lead',
+    result: '+1.2M Impressions',
+    color: 'brand-blue'
+  }
+];
+
 const testimonialsRow1 = [
   {
     name: 'Stedman',
@@ -32,30 +49,17 @@ const testimonialsRow2 = [
   {
     name: 'Ngartville',
     role: 'Content Creator',
-    content: 'I am really happy to see the thumbnails design because i got what i am looking for. Inconsistent editors are a thing of the past.',
+    content: 'I am really happy to see the thumbnails design because i got what i am looking for.',
     avatar: 'https://i.pravatar.cc/150?u=ngart'
   },
   {
     name: 'Ferdinand Ritter',
     role: 'Agency Owner',
-    content: "Just wanted to drop you a quick note to say how much we appreciate the amazing work you've been doing with us.",
+    content: "Just wanted to drop you a quick note to say how much we appreciate the amazing work.",
     avatar: 'https://i.pravatar.cc/150?u=ferdinand'
-  },
-  {
-    name: 'Stedman',
-    role: 'Business Consultant',
-    content: 'The team at CRED MEDIA redefined our digital presence. 10/10 recommendation.',
-    avatar: 'https://i.pravatar.cc/150?u=stedman2',
-  },
-  {
-    name: 'David Alimo',
-    role: 'Agency Owner',
-    content: 'Scalable content systems that actually work. They are the best in the business.',
-    avatar: 'https://i.pravatar.cc/150?u=david2'
   }
 ];
 
-// Added Key to the interface to resolve the TypeScript error when passing keys to components
 const TestimonialCard = ({ t }: { t: any; key?: React.Key }) => (
   <div className="flex-shrink-0 w-[380px] md:w-[480px] bg-[#0A0A0A] border border-white/5 rounded-[2.5rem] p-10 hover:border-brand-pink/20 transition-all duration-700 group mx-4 shadow-2xl">
     <div className="flex flex-col gap-8">
@@ -100,25 +104,49 @@ const Testimonials: React.FC = () => {
         <p className="text-white/40 text-sm font-black uppercase tracking-[0.4em]">Real results from real partners</p>
       </div>
 
+      {/* TWO HORIZONTAL VIDEO TESTIMONIALS */}
+      <div className="max-w-7xl mx-auto px-6 mb-32">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+          {featuredVideoTestimonials.map((video, idx) => (
+            <div key={video.id} className="relative group animate-in slide-in-from-bottom-10 duration-1000" style={{ animationDelay: `${idx * 200}ms` }}>
+              {/* Glow border matching side of website */}
+              <div className={`absolute -inset-1 rounded-[2.5rem] blur opacity-20 group-hover:opacity-60 transition-all duration-1000 ${idx === 0 ? 'bg-brand-accent' : 'bg-brand-blue'}`}></div>
+              
+              <div className="relative bg-[#080808] border border-white/10 rounded-[2.5rem] overflow-hidden shadow-2xl">
+                <div className="aspect-video w-full bg-black">
+                  <iframe 
+                    className="w-full h-full"
+                    src={`https://drive.google.com/file/d/${video.id}/preview`}
+                    title={video.title}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+                
+                <div className="p-8 flex items-center justify-between">
+                  <div>
+                    <h3 className="text-white font-black text-2xl tracking-tight">{video.title}</h3>
+                    <p className="text-white/40 text-[10px] font-black uppercase tracking-widest mt-1">Success Story with {video.name}</p>
+                  </div>
+                  <div className={`px-4 py-2 rounded-full border text-[11px] font-black uppercase tracking-widest ${idx === 0 ? 'border-brand-accent/30 text-brand-accent bg-brand-accent/5' : 'border-brand-blue/30 text-brand-blue bg-brand-blue/5'}`}>
+                    {video.result}
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
       <div className="space-y-12 relative">
-        {/* Left/Right Vignette Fades */}
         <div className="absolute inset-y-0 left-0 w-48 bg-gradient-to-r from-brand-dark via-brand-dark/80 to-transparent z-10 pointer-events-none"></div>
         <div className="absolute inset-y-0 right-0 w-48 bg-gradient-to-l from-brand-dark via-brand-dark/80 to-transparent z-10 pointer-events-none"></div>
 
-        {/* Row 1: Left to Right */}
         <div className="flex overflow-hidden group">
           <div className="flex animate-[marquee_60s_linear_infinite] group-hover:[animation-play-state:paused]">
             {[...testimonialsRow1, ...testimonialsRow1].map((t, idx) => (
               <TestimonialCard key={`row1-${idx}`} t={t} />
-            ))}
-          </div>
-        </div>
-
-        {/* Row 2: Right to Left */}
-        <div className="flex overflow-hidden group">
-          <div className="flex animate-[marquee-reverse_70s_linear_infinite] group-hover:[animation-play-state:paused]">
-            {[...testimonialsRow2, ...testimonialsRow2].map((t, idx) => (
-              <TestimonialCard key={`row2-${idx}`} t={t} />
             ))}
           </div>
         </div>
@@ -133,14 +161,7 @@ const Testimonials: React.FC = () => {
           0% { transform: translateX(0); }
           100% { transform: translateX(-50%); }
         }
-        @keyframes marquee-reverse {
-          0% { transform: translateX(-50%); }
-          100% { transform: translateX(0); }
-        }
       `}</style>
-
-      {/* Background Decorative Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[50%] bg-brand-blue/5 blur-[180px] rounded-full -z-10 animate-pulse"></div>
     </section>
   );
 };

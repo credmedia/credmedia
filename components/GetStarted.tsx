@@ -116,8 +116,10 @@ const GetStarted: React.FC = () => {
                 </div>
               ))}
             </div>
-            <p className="text-white/20 text-[8px] font-black uppercase tracking-[0.5em]">
-              Trusted by <span className="text-brand-pink/60">50+</span> Global Partners
+            <p className="text-white/20 text-[8px] font-black uppercase tracking-[0.5em] flex items-center gap-2">
+              <span>Trusted by</span>
+              <span className="px-1.5 py-0.5 bg-brand-accent text-brand-dark rounded-sm font-black">25+</span>
+              <span>Global Partners</span>
             </p>
           </div>
         </div>

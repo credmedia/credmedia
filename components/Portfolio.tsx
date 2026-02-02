@@ -22,8 +22,8 @@ const horizontalVideos = [
     type: 'youtube'
   },
   { 
-    url: 'https://www.youtube.com/embed/XiKs4J2u5Ok?enablejsapi=1&origin=' + window.location.origin, 
-    title: 'KIM STARK',
+    url: 'https://www.youtube.com/embed/FAiBRXS-IfE?enablejsapi=1&origin=' + window.location.origin, 
+    title: 'Expert Video Strategy',
     type: 'youtube'
   },
   { 
@@ -39,11 +39,6 @@ const horizontalVideos = [
   { 
     url: 'https://www.youtube.com/embed/5p3VFGnMClg?si=XvDiOc4fcy4mOp7l&enablejsapi=1&origin=' + window.location.origin, 
     title: 'Product Design Deep Dive',
-    type: 'youtube'
-  },
-  {
-    url: 'https://www.youtube.com/embed/FAiBRXS-IfE?enablejsapi=1&origin=' + window.location.origin,
-    title: 'Expert Video Strategy',
     type: 'youtube'
   }
 ];

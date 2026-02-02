@@ -40,12 +40,17 @@ const horizontalVideos = [
     url: 'https://www.youtube.com/embed/5p3VFGnMClg?si=XvDiOc4fcy4mOp7l&enablejsapi=1&origin=' + window.location.origin, 
     title: 'Product Design Deep Dive',
     type: 'youtube'
+  },
+  {
+    url: 'https://www.youtube.com/embed/FAiBRXS-IfE?enablejsapi=1&origin=' + window.location.origin,
+    title: 'Expert Video Strategy',
+    type: 'youtube'
   }
 ];
 
-// Split the horizontal videos into two rows for the two-line marquee layout
-const row1Videos = horizontalVideos.slice(0, 3);
-const row2Videos = horizontalVideos.slice(3, 6);
+// Split the horizontal videos dynamically into two rows for the marquee layout
+const row1Videos = horizontalVideos.slice(0, Math.ceil(horizontalVideos.length / 2));
+const row2Videos = horizontalVideos.slice(Math.ceil(horizontalVideos.length / 2));
 
 const Portfolio: React.FC = () => {
   return (

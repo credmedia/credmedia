@@ -28,15 +28,16 @@ const ChatBot: React.FC = () => {
         element.scrollIntoView({ behavior: 'smooth' });
       }
     } else if (action === 'MESSAGE ON DISCORD') {
-      window.open('https://discord.com', '_blank');
+      window.open('https://discord.com/users/1263203451605745850', '_blank', 'noopener,noreferrer');
     }
   };
 
   const renderMessageContent = (text: string, isUser: boolean) => {
     if (isUser) return text;
 
-    // Split text by the specific bolded phrases we want to make interactive
-    const parts = text.split(/(\*\*BOOK A CALL\*\*|\*\*MESSAGE ON DISCORD\*\*)/g);
+    // Pattern to split by action buttons or absolute http/https URLs
+    const regex = /(\*\*BOOK A CALL\*\*|\*\*MESSAGE ON DISCORD\*\*|https?:\/\/[^\s()<>*"]+[^\s()<>.,;!?*"])/g;
+    const parts = text.split(regex);
 
     return parts.map((part, index) => {
       if (part === '**BOOK A CALL**') {
@@ -61,10 +62,32 @@ const ChatBot: React.FC = () => {
           </button>
         );
       }
-      // Standard markdown bolding for other text
-      return part.split(/(\*\*.*?\*\*)/g).map((subPart, subIndex) => {
+      if (part.startsWith('http://') || part.startsWith('https://')) {
+        return (
+          <a
+            key={index}
+            href={part}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-0.5 text-brand-pink hover:text-brand-accent underline font-black transition-colors cursor-pointer text-[11px]"
+          >
+            {part}
+            <svg xmlns="http://www.w3.org/2000/svg" className="inline h-3 w-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </a>
+        );
+      }
+
+      // Inside normal text, handle general bold markdown (**text**)
+      const subParts = part.split(/(\*\*.*?\*\*)/g);
+      return subParts.map((subPart, subIndex) => {
         if (subPart.startsWith('**') && subPart.endsWith('**')) {
-          return <strong key={`${index}-${subIndex}`} className="font-black text-white">{subPart.slice(2, -2)}</strong>;
+          return (
+            <strong key={`${index}-${subIndex}`} className="font-extrabold text-white">
+              {subPart.slice(2, -2)}
+            </strong>
+          );
         }
         return subPart;
       });
@@ -91,9 +114,9 @@ const ChatBot: React.FC = () => {
           - We've edited 500+ videos.
           - We focus on high-conversion video content.
           - Important: If the user is interested, you MUST use the exact phrases "**BOOK A CALL**" or "**MESSAGE ON DISCORD**" as these are interactive buttons.
-          - Calendly for booking: https://calendly.com/ayushvisions/30min
-          - Discord link: https://discord.com
-          Keep responses concise and impactful. Use emojis occasionally to maintain the brand vibe.`,
+          - Direct Calendly for booking: https://calendly.com/ayushvisions/30min
+          - Direct Discord connection link: https://discord.com/users/1263203451605745850
+          Always output the raw URLs whenever describing how to book or chat so that the app's advanced visual HTML link parser can render them into clickable anchor tags natively, bypassing potential browser frame blocks. Keep responses concise and impactful. Use emojis occasionally to maintain the brand vibe.`,
         },
       });
 

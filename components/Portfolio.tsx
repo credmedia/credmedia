@@ -1,15 +1,6 @@
 
 import React from 'react';
 
-const verticalVideos = [
-  { id: 'LwMn2XmdRbg', title: 'Viral Strategy' },
-  { id: '5niHPSTvSxY', title: 'High-Conversion Edit' },
-  { id: 'hprOw902GuM', title: 'Brand Storytelling' },
-  { id: '5niHPSTvSxY', title: 'Social Commerce' },
-  { id: 'ZogS2Xyin_8', title: 'Elite Production' },
-  { id: '4kHYSegwA78', title: 'Dynamic Motion' }
-];
-
 const horizontalVideos = [
   { 
     url: 'https://www.youtube.com/embed/8ahN_fRwKKw?enablejsapi=1&origin=' + window.location.origin, 
@@ -49,7 +40,7 @@ const row2Videos = horizontalVideos.slice(Math.ceil(horizontalVideos.length / 2)
 
 const Portfolio: React.FC = () => {
   return (
-    <section id="portfolio" className="py-24 relative overflow-hidden bg-brand-dark">
+    <section id="portfolio" className="py-16 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 mb-16">
         <div className="text-center">
           <h2 className="text-4xl md:text-6xl font-black tracking-tighter mb-4">
@@ -61,40 +52,7 @@ const Portfolio: React.FC = () => {
         </div>
       </div>
 
-      {/* 1. Vertical/Portrait Scrolling Marquee */}
-      <div className="mb-32">
-        <div className="max-w-7xl mx-auto px-6 mb-8">
-           <h3 className="text-xl font-black tracking-widest uppercase text-white/30 border-l-4 border-brand-pink pl-4">Short Form Mastery</h3>
-        </div>
-        <div className="relative flex overflow-hidden group">
-          <div className="flex animate-[marquee_40s_linear_infinite] group-hover:[animation-play-state:paused] gap-6 px-3">
-            {[...verticalVideos, ...verticalVideos].map((video, index) => (
-              <div 
-                key={`${video.id}-${index}`} 
-                className="relative flex-shrink-0 w-[280px] md:w-[320px] aspect-[9/16] rounded-[2.5rem] overflow-hidden bg-white/5 border border-white/10 group/item card-hover"
-              >
-                <iframe 
-                  className="w-full h-full object-cover scale-[1.02]"
-                  src={`https://www.youtube.com/embed/${video.id}?autoplay=0&mute=1&controls=0&loop=1&playlist=${video.id}&modestbranding=1&enablejsapi=1`} 
-                  title={video.title}
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-                
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent opacity-60 group-hover/item:opacity-90 transition-opacity"></div>
-                
-                <div className="absolute bottom-8 left-8 right-8 transform translate-y-4 group-hover/item:translate-y-0 transition-transform duration-500">
-                  <span className="text-brand-pink text-[10px] font-black uppercase tracking-widest mb-2 block">High Conversion</span>
-                  <h3 className="text-white text-xl font-black tracking-tight">{video.title}</h3>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* 2. Horizontal Scrolling Marquee (Long Form) - TWO LINES */}
+      {/* Horizontal Scrolling Marquee (Long Form) - TWO LINES */}
       <div className="mb-24">
         <div className="max-w-7xl mx-auto px-6 mb-8">
           <h3 className="text-xl font-black tracking-widest uppercase text-white/30 border-l-4 border-brand-blue pl-4">LONG FORM EXPERT</h3>

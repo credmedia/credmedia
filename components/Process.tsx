@@ -50,7 +50,7 @@ const Process: React.FC = () => {
   }, []);
 
   return (
-    <section id="process" ref={sectionRef} className="py-32 px-6 relative bg-brand-dark">
+    <section id="process" ref={sectionRef} className="py-20 px-6 relative">
       <div className="max-w-4xl mx-auto">
         <div className="relative">
           {/* Central Vertical Line (Background) */}

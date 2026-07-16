@@ -67,9 +67,9 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="py-20 px-6 border-t border-white/5 bg-brand-dark relative">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
-        <div className="col-span-1 md:col-span-2 space-y-6">
+    <footer className="py-20 px-6 border-t border-white/5 relative">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-12">
+        <div className="col-span-1 lg:col-span-2 space-y-6">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 flex items-center justify-center">
               <svg viewBox="0 0 100 100" className="w-full h-full">
@@ -124,6 +124,24 @@ const Footer: React.FC = () => {
             <li><a href="#" onClick={(e) => openLegal(e, 'Privacy Policy')} className="hover:text-brand-pink transition-colors cursor-pointer block">Privacy Policy</a></li>
             <li><a href="#" onClick={(e) => openLegal(e, 'Refund Policy')} className="hover:text-brand-pink transition-colors cursor-pointer block text-brand-accent">Refund Policy</a></li>
             <li><a href="#" onClick={(e) => openLegal(e, 'Cookies')} className="hover:text-brand-pink transition-colors cursor-pointer block">Cookies</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 className="font-black text-sm uppercase tracking-widest text-white/20 mb-6">Contact</h4>
+          <ul className="space-y-4">
+            <li>
+              <div className="text-[10px] font-black uppercase tracking-widest text-white/30 mb-1">Professional</div>
+              <a href="mailto:kayla@credmediahq.com" className="font-bold text-white/70 hover:text-brand-pink transition-colors block text-sm">
+                kayla@credmediahq.com
+              </a>
+            </li>
+            <li>
+              <div className="text-[10px] font-black uppercase tracking-widest text-white/30 mb-1 mt-2">Personal</div>
+              <a href="mailto:ayushvisions@gmail.com" className="font-bold text-white/70 hover:text-brand-pink transition-colors block text-sm">
+                ayushvisions@gmail.com
+              </a>
+            </li>
           </ul>
         </div>
       </div>

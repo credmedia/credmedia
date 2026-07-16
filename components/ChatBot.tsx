@@ -1,6 +1,5 @@
 
 import React, { useState, useRef, useEffect } from 'react';
-import { GoogleGenAI } from "@google/genai";
 
 const ChatBot: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -103,25 +102,28 @@ const ChatBot: React.FC = () => {
     setIsLoading(true);
 
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-      const chat = ai.chats.create({
-        model: 'gemini-3-pro-preview',
-        config: {
-          systemInstruction: `You are the AI assistant for CRED MEDIA, a premium design and video agency. 
-          Your goal is to be helpful, professional, and high-energy. 
-          Key info:
-          - We have 8 world-class specialists.
-          - We've edited 500+ videos.
-          - We focus on high-conversion video content.
-          - Important: If the user is interested, you MUST use the exact phrases "**BOOK A CALL**" or "**MESSAGE ON DISCORD**" as these are interactive buttons.
-          - Direct Calendly for booking: https://calendly.com/ayushvisions/30min
-          - Direct Discord connection link: https://discord.com/users/1263203451605745850
-          Always output the raw URLs whenever describing how to book or chat so that the app's advanced visual HTML link parser can render them into clickable anchor tags natively, bypassing potential browser frame blocks. Keep responses concise and impactful. Use emojis occasionally to maintain the brand vibe.`,
+      const chatHistory = messages.map(m => ({
+        role: m.role,
+        parts: [{ text: m.text }]
+      }));
+
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
         },
+        body: JSON.stringify({
+          message: userMessage,
+          history: chatHistory
+        })
       });
 
-      const result = await chat.sendMessage({ message: userMessage });
-      setMessages(prev => [...prev, { role: 'model', text: result.text || "I'm having a bit of a creative block. Try asking again!" }]);
+      if (!response.ok) {
+        throw new Error(`Failed to fetch from chat API: ${response.statusText}`);
+      }
+
+      const data = await response.json();
+      setMessages(prev => [...prev, { role: 'model', text: data.text || "I'm having a bit of a creative block. Try asking again!" }]);
     } catch (error) {
       console.error("Gemini Error:", error);
       setMessages(prev => [...prev, { role: 'model', text: "Something went wrong. But hey, our video editing never fails—maybe try **BOOK A CALL** instead?" }]);

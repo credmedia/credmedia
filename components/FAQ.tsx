@@ -3,8 +3,16 @@ import React, { useState } from 'react';
 
 const faqs = [
   {
-    question: "Do you offer a money-back guarantee?",
-    answer: "Yes. We offer a 14-Day Money-Back Guarantee. If you’re not satisfied with the editing quality or delivery within the first 14 days, you may request a full refund after providing reasonable feedback and allowing revisions. This guarantee applies only to editing quality and agreed deliverables and does not cover views, engagement, revenue, or algorithm-based performance."
+    question: "What if I'm not satisfied?",
+    answer: "I'll work with you to understand the issue and find a solution. My goal is to make sure the final result meets your expectations."
+  },
+  {
+    question: "Do I need to commit to a retainer?",
+    answer: "No. Many projects, such as VSLs, SaaS animations, and one-off campaigns, can be completed without an ongoing retainer."
+  },
+  {
+    question: "How do I pay you for your service?",
+    answer: "I offer multiple payment options to make the process as simple and convenient as possible."
   },
   {
     question: "How many revision option i will get for per video edit?",
@@ -15,20 +23,12 @@ const faqs = [
     answer: "Simple! Just book a strategy call via the Calendly link or message us directly on Discord. We'll conduct a quick audit of your content and get the ball rolling."
   },
   {
-    question: "Why should I trust you?",
-    answer: "We have a team of 8+ specialists and have successfully delivered over 500 videos. Our client retention rate is 95% because we focus on ROI, not just pretty edits."
-  },
-  {
     question: "What Payment Method do you use?",
     answer: "We use Paypal, Payoneer, Apple Pay, Wise, Google Pay for the payment"
   },
   {
     question: "Can we have custom package for our content?",
     answer: "Yes, we can definitely create a customized package that fits your specific needs and goals. We understand that every brand is unique."
-  },
-  {
-    question: "We will also get the source file of the work?",
-    answer: "No, source file are not included in packages. If you want a source file so there will be extra charges for that."
   }
 ];
 
@@ -54,9 +54,9 @@ const FAQItem = ({ faq, isOpen, onClick }: FAQItemProps) => {
         <span className={`text-lg md:text-xl font-bold tracking-tight transition-colors duration-300 ${isOpen ? 'text-white' : 'text-white/70'}`}>
           {faq.question}
         </span>
-        <div className={`relative flex items-center justify-center w-8 h-8 rounded-full border border-white/10 transition-transform duration-500 ${isOpen ? 'rotate-45 bg-brand-blue border-brand-blue' : ''}`}>
+        <div className={`relative flex items-center justify-center w-8 h-8 rounded-full border border-white/10 transition-all duration-300 ${isOpen ? 'bg-brand-blue border-brand-blue' : ''}`}>
           <div className="absolute w-3 h-[2px] bg-white"></div>
-          <div className={`absolute h-3 w-[2px] bg-white transition-opacity ${isOpen ? 'opacity-0' : 'opacity-100'}`}></div>
+          <div className={`absolute h-3 w-[2px] bg-white transition-all duration-300 ${isOpen ? 'scale-0 opacity-0' : 'scale-100 opacity-100'}`}></div>
         </div>
       </button>
       
@@ -77,7 +77,7 @@ const FAQ: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faqs" className="py-24 px-6 bg-brand-dark relative">
+    <section id="faqs" className="py-16 px-6 relative">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl font-black tracking-tighter mb-4">

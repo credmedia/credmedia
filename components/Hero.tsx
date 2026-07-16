@@ -1,9 +1,231 @@
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+
+const verticalVideos = [
+  { id: 'LwMn2XmdRbg', title: 'Viral Strategy' },
+  { id: '5niHPSTvSxY', title: 'High-Conversion Edit' },
+  { id: 'hprOw902GuM', title: 'Brand Storytelling' },
+  { id: 'ZogS2Xyin_8', title: 'Elite Production' },
+  { id: '4kHYSegwA78', title: 'Dynamic Motion' }
+];
+
+const Logos = [
+  // 1. SharkAlgo
+  () => (
+    <div className="flex items-center justify-center shrink-0">
+      <div className="flex items-center gap-3.5 text-white/80 hover:text-white transition-colors duration-300">
+        <svg className="h-11 w-auto fill-current" viewBox="0 0 32 32">
+          <path d="M6 6l10 8L6 22V6zm10 0l10 8-10 8V6z" />
+        </svg>
+        <span className="text-lg md:text-xl font-black tracking-tight uppercase">SharkAlgo</span>
+      </div>
+    </div>
+  ),
+  // 2. HTC
+  () => (
+    <div className="flex items-center justify-center shrink-0">
+      <div className="flex items-center gap-3.5 text-white/80 hover:text-white transition-colors duration-300">
+        <svg className="h-11 w-11 fill-none stroke-current" strokeWidth="2.5" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10" />
+          <path d="M8 12h8M12 8v8" />
+        </svg>
+        <span className="text-base md:text-lg font-black tracking-widest uppercase">HTC</span>
+      </div>
+    </div>
+  ),
+  // 3. Stylized Loop / Infinity
+  () => (
+    <div className="flex items-center justify-center shrink-0">
+      <svg className="h-10 w-auto text-white/80 hover:text-white transition-colors duration-300 fill-none stroke-current" strokeWidth="2.5" viewBox="0 0 100 40">
+        <path d="M30 20c0-5.5 4.5-10 10-10s10 4.5 10 10-4.5 10-10 10-10-4.5-10-10zm20 0c0-5.5 4.5-10 10-10s10 4.5 10 10-4.5 10-10 10-10-4.5-10-10z" />
+      </svg>
+    </div>
+  ),
+  // 4. TA THE ARCHOS
+  () => (
+    <div className="flex items-center justify-center shrink-0">
+      <div className="flex items-center gap-3.5 text-white/80 hover:text-white transition-colors duration-300">
+        <svg className="h-9 w-auto fill-current" viewBox="0 0 120 30">
+          <path d="M10 5h22v4H21v16h-5V9H10V5zm16 20l6-18h4l6 18h-4.5l-1.2-4.5h-5.6l-1.2 4.5H26zm6.8-8.5h3.6L34.5 8l-1.7 8.5z" />
+          <text x="50" y="21" className="font-sans font-black tracking-[0.2em] text-[11px] fill-current">THE ARCHOS</text>
+        </svg>
+      </div>
+    </div>
+  ),
+  // 5. KYRUS AGENCY
+  () => (
+    <div className="flex items-center justify-center shrink-0">
+      <div className="flex items-center gap-3.5 text-white/80 hover:text-white transition-colors duration-300">
+        <svg className="h-10 w-auto fill-current" viewBox="0 0 32 32">
+          <rect x="4" y="4" width="5" height="24" rx="1" />
+          <path d="M12 16l9-10h-6l-9 8v4z" />
+          <path d="M12 16l10 12h-6l-10-10v-2z" />
+        </svg>
+        <div className="flex flex-col items-start leading-none">
+          <span className="text-sm md:text-base font-black tracking-wider">KYRUS</span>
+          <span className="text-[8px] md:text-[9px] font-bold tracking-[0.25em] opacity-60">AGENCY</span>
+        </div>
+      </div>
+    </div>
+  ),
+  // 6. ClipLaunch
+  () => (
+    <div className="flex items-center justify-center shrink-0">
+      <div className="flex items-center gap-2.5 text-white/80 hover:text-white transition-colors duration-300">
+        <span className="text-base md:text-lg font-black tracking-tight">ClipLaunch</span>
+        <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
+          <path d="M12 2s.5 3 2.5 5 5 2.5 5 2.5-3 .5-5 2.5-2.5 5-2.5 5-.5-3-2.5-5-5-2.5-5-2.5 3-.5 5-2.5 2.5-5 2.5-5z" />
+        </svg>
+      </div>
+    </div>
+  ),
+  // 7. SERVICE VAULT
+  () => (
+    <div className="flex items-center justify-center shrink-0 text-white/80 hover:text-white transition-colors duration-300">
+      <div className="flex flex-col items-start leading-none italic font-black">
+        <span className="text-xs tracking-wider">SERVICE</span>
+        <span className="text-sm md:text-base tracking-widest ml-1.5 opacity-80">VAULT</span>
+      </div>
+    </div>
+  ),
+  // 8. THE CLARUS COMPANY
+  () => (
+    <div className="flex items-center justify-center shrink-0 text-white/80 hover:text-white transition-colors duration-300">
+      <div className="flex items-center justify-center p-2 border border-current w-14 h-14">
+        <div className="text-center flex flex-col justify-center leading-[0.8] h-full">
+          <span className="text-[6px] font-bold tracking-[0.1em] opacity-60">THE</span>
+          <span className="text-[9px] font-black tracking-[0.15em] my-0.5">CLARUS</span>
+          <span className="text-[5px] font-medium tracking-[0.05em] opacity-60">COMPANY</span>
+        </div>
+      </div>
+    </div>
+  )
+];
+
+const YouTubePlayer: React.FC<{ videoId: string; title: string }> = ({ videoId, title }) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const playerRef = useRef<any>(null);
+
+  useEffect(() => {
+    // Inject YouTube Iframe Player API script if it's not present yet
+    if (!(window as any).YT) {
+      const tag = document.createElement('script');
+      tag.src = 'https://www.youtube.com/iframe_api';
+      const firstScriptTag = document.getElementsByTagName('script')[0];
+      if (firstScriptTag && firstScriptTag.parentNode) {
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+      } else {
+        document.head.appendChild(tag);
+      }
+    }
+
+    let checkInterval: any;
+    let player: any;
+
+    const initPlayer = () => {
+      const YT = (window as any).YT;
+      if (!YT || !YT.Player || !containerRef.current) return;
+
+      // Clean up previous interval if running
+      if (checkInterval) clearInterval(checkInterval);
+
+      const uniqueId = `yt-player-${videoId}-${Math.random().toString(36).substring(2, 9)}`;
+      const placeholder = document.createElement('div');
+      placeholder.id = uniqueId;
+      placeholder.style.width = '100%';
+      placeholder.style.height = '100%';
+      containerRef.current.appendChild(placeholder);
+
+      player = new YT.Player(uniqueId, {
+        videoId: videoId,
+        playerVars: {
+          autoplay: 1,
+          mute: 1,
+          playsinline: 1,
+          controls: 0,
+          loop: 1,
+          playlist: videoId,
+          modestbranding: 1,
+          cc_load_policy: 0,
+          iv_load_policy: 3,
+          rel: 0,
+        },
+        events: {
+          onReady: (event: any) => {
+            event.target.mute();
+            event.target.playVideo();
+            // Programmatically disable/unload closed captions and subtitles
+            try {
+              event.target.unloadModule('captions');
+              event.target.unloadModule('cc');
+            } catch (e) {
+              console.warn('Captions module unload not supported or already removed:', e);
+            }
+          },
+          onStateChange: (event: any) => {
+            if (event.data === (window as any).YT.PlayerState.ENDED) {
+              event.target.playVideo();
+            }
+            // Consistently keep captions off across state changes
+            try {
+              event.target.unloadModule('captions');
+              event.target.unloadModule('cc');
+            } catch (e) {}
+          },
+        },
+      });
+
+      playerRef.current = player;
+    };
+
+    const YT = (window as any).YT;
+    if (YT && YT.Player) {
+      initPlayer();
+    } else {
+      // Poll periodically to check if YT global became available
+      checkInterval = setInterval(() => {
+        const currentYT = (window as any).YT;
+        if (currentYT && currentYT.Player) {
+          clearInterval(checkInterval);
+          initPlayer();
+        }
+      }, 100);
+
+      const previousReady = (window as any).onYouTubeIframeAPIReady;
+      (window as any).onYouTubeIframeAPIReady = () => {
+        if (previousReady) previousReady();
+        const currentYT = (window as any).YT;
+        if (currentYT && currentYT.Player) {
+          initPlayer();
+        }
+      };
+    }
+
+    return () => {
+      if (checkInterval) clearInterval(checkInterval);
+      if (playerRef.current && typeof playerRef.current.destroy === 'function') {
+        try {
+          playerRef.current.destroy();
+        } catch (e) {}
+      }
+      if (containerRef.current) {
+        containerRef.current.innerHTML = '';
+      }
+    };
+  }, [videoId]);
+
+  return (
+    <div ref={containerRef} className="w-full h-full object-cover scale-[1.02] pointer-events-none" />
+  );
+};
 
 const Hero: React.FC = () => {
   return (
-    <section className="pt-44 pb-24 px-6 relative overflow-hidden">
+    <section className="pt-44 pb-12 px-6 relative overflow-hidden bg-transparent">
+      
+      {/* Deep Violet Ambient Glow on top */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[800px] h-96 bg-brand-pink/5 blur-[120px] rounded-full pointer-events-none"></div>
+
       <div className="max-w-4xl mx-auto text-center relative z-10">
         <h1 className="text-4xl md:text-7xl font-black tracking-tighter leading-[0.9] mb-8 animate-in fade-in slide-in-from-bottom-10 duration-1000 flex flex-wrap justify-center items-center gap-x-[0.1em]">
           <span>Crafting C</span>
@@ -20,7 +242,7 @@ const Hero: React.FC = () => {
           Expert video craftsmanship that turns impressions into loyal audiences and real results.
         </p>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8 animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-300">
+        <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4 mb-8 animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-300">
           <a 
             href="https://calendly.com/ayushvisions/30min" 
             target="_blank"
@@ -48,47 +270,68 @@ const Hero: React.FC = () => {
           </a>
         </div>
 
-        <div className="flex justify-center mb-10 animate-in fade-in slide-in-from-bottom-5 duration-1000 delay-500">
-          <div className="relative group cursor-default">
-            <div className="absolute -inset-1 bg-gradient-to-r from-brand-accent via-brand-pink to-brand-blue rounded-full blur-[4px] opacity-30 group-hover:opacity-60 transition duration-500"></div>
-            <div className="relative px-6 py-2.5 bg-brand-dark/80 backdrop-blur-xl border border-white/10 rounded-full flex items-center gap-3">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-accent opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-accent"></span>
-              </span>
-              <span className="text-sm font-black uppercase tracking-[0.15em] text-white/90">
-                We will edit your <span className="text-brand-accent">first video for free</span>
-              </span>
-            </div>
-          </div>
-        </div>
+      </div>
 
-        <div className="flex justify-center mb-6 animate-in fade-in slide-in-from-bottom-5 duration-1000 delay-600">
-          <div className="relative group">
-            <div className="absolute -inset-[1px] bg-brand-accent rounded-full blur-[8px] opacity-30 group-hover:opacity-60 transition duration-500"></div>
-            <div className="relative flex items-center gap-2.5 bg-[#0A0A0A] border border-brand-accent/30 rounded-full py-2 px-8 shadow-2xl">
-              <span className="w-2.5 h-2.5 bg-brand-accent rounded-full animate-pulse shadow-[0_0_10px_rgba(244,141,46,0.8)]"></span>
-              <p className="text-[12px] md:text-sm font-black text-white uppercase tracking-wider flex items-center gap-1.5">
-                14-DAY QUALITY GUARANTEE · <span className="text-brand-accent">FULL REFUND</span> IF YOU’RE NOT SATISFIED
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div className="relative group animate-in zoom-in-95 duration-1000 delay-700">
-          <div className="absolute -inset-1 bg-gradient-to-r from-brand-blue via-brand-pink to-brand-accent rounded-3xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
-          <div className="relative bg-brand-dark rounded-3xl overflow-hidden aspect-video border border-white/10 shadow-2xl">
-            <iframe 
-              title="youtube-player" 
-              src="https://www.youtube.com/embed/RWgTYbeYSP0?si=pX_9o9t3A-T5kR6m&autoplay=0&rel=0&modestbranding=1" 
-              className="w-full h-full"
-              frameBorder="0" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-              allowFullScreen
-            ></iframe>
+      {/* Dynamic Vertical/Short Form Scrolling Marquee */}
+      <div className="mt-12 relative z-10 w-full overflow-hidden animate-in zoom-in-95 duration-1000 delay-500">
+        <div className="relative flex overflow-hidden group">
+          <div className="flex animate-[marquee_36s_linear_infinite] group-hover:[animation-play-state:paused] gap-6 px-3">
+            {[...verticalVideos, ...verticalVideos].map((video, index) => (
+              <div 
+                key={`${video.id}-${index}`} 
+                className="relative flex-shrink-0 w-[240px] md:w-[280px] aspect-[9/16] rounded-[2rem] overflow-hidden bg-white/5 border border-white/10 group/item transition-all duration-300 hover:border-brand-pink/50 hover:shadow-[0_0_30px_rgba(242,169,235,0.15)]"
+              >
+                <YouTubePlayer videoId={video.id} title={video.title} />
+                
+                {/* Clickable Overlay Link to open YouTube Shorts video in new tab */}
+                <a 
+                  href={`https://youtube.com/shorts/${video.id}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute inset-0 z-20 bg-gradient-to-t from-brand-dark/95 via-brand-dark/30 to-transparent opacity-70 group-hover/item:opacity-95 transition-all duration-300 flex flex-col justify-end p-6 text-left cursor-pointer"
+                >
+                  <span className="text-brand-pink text-[9px] font-black uppercase tracking-widest mb-1 block">High Conversion</span>
+                  <h3 className="text-white text-base font-black tracking-tight mb-2">{video.title}</h3>
+                  <div className="text-[10px] text-brand-pink font-black uppercase tracking-wider flex items-center gap-1.5 opacity-0 group-hover/item:opacity-100 transform translate-y-2 group-hover/item:translate-y-0 transition-all duration-300">
+                    Watch Short ↗
+                  </div>
+                </a>
+              </div>
+            ))}
           </div>
         </div>
       </div>
+
+      {/* Trust Scrolling Brand Logo Marquee - Directly Below Shorts */}
+      <div className="mt-24 w-full py-12 relative overflow-hidden z-10 bg-transparent">
+        {/* Left and Right blur fading effects inside the transparent container */}
+        <div className="absolute inset-y-0 left-0 w-48 bg-gradient-to-r from-[#120826] via-[#120826]/75 to-transparent z-20 pointer-events-none"></div>
+        <div className="absolute inset-y-0 right-0 w-48 bg-gradient-to-l from-[#120826] via-[#120826]/75 to-transparent z-20 pointer-events-none"></div>
+
+        <div className="relative flex overflow-hidden w-full">
+          <div className="flex animate-[logoMarquee_32s_linear_infinite] shrink-0 min-w-full justify-around items-center gap-20 pr-20">
+            {Logos.map((LogoComp, i) => (
+              <LogoComp key={`logo-1-${i}`} />
+            ))}
+          </div>
+          <div className="flex animate-[logoMarquee_32s_linear_infinite] shrink-0 min-w-full justify-around items-center gap-20 pr-20" aria-hidden="true">
+            {Logos.map((LogoComp, i) => (
+              <LogoComp key={`logo-2-${i}`} />
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <style>{`
+        @keyframes marquee {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        @keyframes logoMarquee {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-100%); }
+        }
+      `}</style>
     </section>
   );
 };

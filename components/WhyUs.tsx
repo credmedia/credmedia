@@ -24,7 +24,7 @@ const WhyUs: React.FC = () => {
   ];
 
   return (
-    <section className="py-24 px-6 bg-white/[0.02]">
+    <section className="py-16 px-6 relative">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16 space-y-4">
           <h2 className="text-4xl md:text-6xl font-black tracking-tighter">

@@ -23,7 +23,7 @@ const SuccessEnd: React.FC = () => {
   }, []);
 
   return (
-    <div ref={containerRef} className="py-40 bg-brand-dark overflow-hidden relative flex flex-col items-center justify-center">
+    <div ref={containerRef} className="py-20 overflow-hidden relative flex flex-col items-center justify-center">
       {/* Background Triple Glow Effect - Matching the image gradient feel */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <div className="relative w-full max-w-4xl h-64 flex justify-center">

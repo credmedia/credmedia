@@ -1,5 +1,3 @@
-import { getAuth } from 'firebase/auth';
-
 export interface LeadSubmission {
   id: string;
   name: string;

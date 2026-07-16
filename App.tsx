@@ -103,7 +103,7 @@ const App: React.FC = () => {
 
   return (
     <HelmetProvider>
-      <div className="min-h-screen selection:bg-brand-pink selection:text-brand-dark bg-brand-dark relative">
+      <div className="min-h-screen selection:bg-brand-pink selection:text-brand-dark bg-gradient-to-b from-[#120826] via-[#0E061E] to-[#06030D] relative">
         <Helmet>
           <title>{title}</title>
           <meta name="description" content={description} />
